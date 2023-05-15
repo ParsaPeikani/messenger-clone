@@ -8,6 +8,7 @@ import {
 } from "react-hook-form";
 
 import Input from "@/app/components/inputs/Input";
+import Button from "@/app/components/Button";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -63,7 +64,26 @@ const AuthForm = () => {
           sm:px-10"
       >
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          <Input id="email" label="Email" register={register} errors={errors} />
+          {variant === "REGISTER" && (
+            <Input id="name" label="Name" register={register} errors={errors} />
+          )}
+          <Input
+            id="email"
+            label="Email address"
+            type="email"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            id="password"
+            label="Password"
+            type="password"
+            register={register}
+            errors={errors}
+          />
+          <div>
+            <Button>Test</Button>
+          </div>
         </form>
       </div>
     </div>
